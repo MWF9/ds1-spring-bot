@@ -67,6 +67,14 @@ docker compose up -d
 mvn spring-boot:run
 ```
 
+**No Docker / no PostgreSQL?** Run with the in-memory H2 profile instead (data is lost when the app stops):
+
+```bash
+mvn spring-boot:run "-Dspring-boot.run.profiles=h2"
+```
+
+Use **JDK 17 or 21** (newer JDKs such as 27 are not supported yet by Lombok/Hibernate).
+
 The API is available on `http://localhost:8080`. Tables are created automatically
 (`ddl-auto=update`) and a few demo records are inserted on first start (`app.seed.enabled=true`).
 
